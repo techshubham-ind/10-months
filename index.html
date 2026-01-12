@@ -1,1 +1,613 @@
-hfrwighgv
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 10th Anniversary - Adity My Eternal Love 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(45deg, #8B0000, #DC143C, #FF69B4, #FF1493);
+            background-size: 400% 400%;
+            animation: anniversaryGlow 20s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        @keyframes anniversaryGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Lock Screen - OPTIMIZED */
+        .lock-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #DC143C, #FF1493, #8B0000);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+        
+        .anniversary-badge {
+            position: absolute;
+            top: 60px;
+            font-size: clamp(2.5em, 8vw, 5em);
+            color: #FFD700;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            animation: badgeFloat 4s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(255,215,0,0.8);
+        }
+        
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .mega-heart {
+            font-size: 10em;
+            color: #FFD700;
+            animation: heartBeat 2s infinite;
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px rgba(255,215,0,0.8);
+        }
+        
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .lock-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2em, 6vw, 4em);
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+        
+        .date-display {
+            font-size: 1.5em;
+            color: #FFD700;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        
+        .password-input {
+            background: rgba(255,255,255,0.2);
+            border: 3px solid #FFD700;
+            border-radius: 40px;
+            padding: 20px 40px;
+            font-size: 1.5em;
+            color: white;
+            text-align: center;
+            font-family: inherit;
+            outline: none;
+            width: clamp(300px, 45vw, 450px);
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .password-input::placeholder { color: rgba(255,255,255,0.9); }
+        
+        .password-input:focus {
+            border-color: #FFA500;
+            box-shadow: 0 0 20px rgba(255,215,0,0.5);
+            transform: scale(1.02);
+        }
+        
+        .unlock-btn {
+            padding: 20px 50px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #8B0000;
+            border: none;
+            border-radius: 40px;
+            font-size: 1.6em;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 30px rgba(255,215,0,0.4);
+        }
+        
+        .unlock-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(255,215,0,0.6);
+        }
+        
+        /* Main Content - ULTRA SMOOTH */
+        .main-content {
+            display: none;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+        
+        h1 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5em, 8vw, 5em);
+            color: #FFD700;
+            margin: 40px 0;
+            text-shadow: 0 0 20px rgba(255,215,0,0.8);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            from { text-shadow: 0 0 20px #FFD700; }
+            to { text-shadow: 0 0 30px #FFA500, 0 0 40px #FFD700; }
+        }
+        
+        .timeline {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .year-section {
+            margin: 80px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+        
+        .year-section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .year-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .photo-frame {
+            position: relative;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 3px solid rgba(255,215,0,0.5);
+        }
+        
+        .photo-frame:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        }
+        
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .photo-frame:hover img {
+            transform: scale(1.1);
+        }
+        
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            color: #FFD700;
+            padding: 25px 20px;
+            font-size: 1.1em;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all 0.4s ease;
+        }
+        
+        .photo-frame:hover .photo-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* OPTIMIZED POPUP */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(139,0,0,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10001;
+        }
+        
+        .popup {
+            background: linear-gradient(135deg, #fff, #ffe4e1);
+            padding: 40px;
+            border-radius: 30px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            border: 4px solid #FFD700;
+            animation: popupSlide 0.6s ease;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        @keyframes popupSlide {
+            0% { opacity: 0; transform: translateY(50px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        .popup-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #8B0000;
+            margin-bottom: 25px;
+        }
+        
+        .popup-message {
+            font-size: 1.3em;
+            color: #4a2c4a;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .popup-close {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #8B0000;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-family: 'Playfair Display', serif;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .popup-close:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255,215,0,0.4);
+        }
+        
+        /* GRAND FINALE - OPTIMIZED */
+        .finale {
+            height: 100vh;
+            background: linear-gradient(135deg, #8B0000, #DC143C, #FF1493);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 2s ease;
+            padding: 40px;
+        }
+        
+        .finale.reveal {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .finale-heart {
+            font-size: 8em;
+            color: #FFD700;
+            animation: finaleHeart 2s infinite;
+            margin-bottom: 40px;
+            text-shadow: 0 0 30px rgba(255,215,0,0.9);
+        }
+        
+        @keyframes finaleHeart {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .finale-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3em, 7vw, 5em);
+            color: #FFD700;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(255,215,0,0.8);
+            line-height: 1.1;
+        }
+        
+        .love-letters {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 50px 0;
+        }
+        
+        .letter-card {
+            background: linear-gradient(135deg, #fff, #ffe4e1);
+            border: 3px solid #FFD700;
+            border-radius: 25px;
+            padding: 30px 25px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .letter-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255,215,0,0.4);
+        }
+        
+        .letter-number {
+            font-size: 2em;
+            color: #8B0000;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .letter-preview {
+            font-size: 1.2em;
+            color: #4a2c4a;
+            font-weight: 600;
+        }
+        
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 60px 0;
+        }
+        
+        .gift-box {
+            background: linear-gradient(135deg, #fff, #ffe4e1);
+            border: 3px solid #FFD700;
+            border-radius: 25px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        
+        .gift-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(255,215,0,0.4);
+        }
+        
+        .gift-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .gift-title {
+            font-weight: 700;
+            color: #8B0000;
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 768px) {
+            .love-letters { flex-direction: column; align-items: center; }
+            .gifts-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- LOCK SCREEN -->
+    <div class="lock-screen" id="lockScreen">
+        <div class="anniversary-badge">10️⃣</div>
+        <div class="mega-heart">💖</div>
+        <div class="lock-title">
+            Happy 10th Anniversary<br>
+            My Dearest Adity
+        </div>
+        <div class="date-display">January 12, 2026</div>
+        <input type="password" class="password-input" id="passwordInput" placeholder="💋 adity 💋">
+        <button class="unlock-btn" onclick="unlockPage()">🎉 Celebrate 10 Years! 🎉</button>
+    </div>
+    
+    <!-- SIMPLIFIED POPUPS -->
+    <div class="popup-overlay" id="popup1">
+        <div class="popup">
+            <div class="mega-heart" style="font-size: 4em;">💖</div>
+            <div class="popup-title">10 Years of Pure Magic!</div>
+            <div class="popup-message">
+                Adity my love,<br><br>
+                Ten years ago today, fate brought us together. Every laugh, every tear, 
+                every moment has made us stronger. You are my greatest blessing!
+            </div>
+            <button class="popup-close" onclick="closePopup('popup1')">💕 Next Memory</button>
+        </div>
+    </div>
+    
+    <div class="popup-overlay" id="popup2">
+        <div class="popup">
+            <div class="mega-heart" style="font-size: 4em;">💕</div>
+            <div class="popup-title">Half-Decade Love</div>
+            <div class="popup-message">
+                My beautiful Adity,<br><br>
+                Five years in, our love only grew deeper. Through every challenge 
+                and triumph, you've been my constant joy and strength. Forever grateful!
+            </div>
+            <button class="popup-close" onclick="closePopup('popup2')">💕 Continue</button>
+        </div>
+    </div>
+    
+    <div class="popup-overlay" id="popup3">
+        <div class="popup">
+            <div class="mega-heart" style="font-size: 4em;">💗</div>
+            <div class="popup-title">Eternal Promise</div>
+            <div class="popup-message">
+                My soulmate Adity,<br><br>
+                Ten years of love, laughter, and memories. I promise to love you 
+                more with every sunrise. Here's to eternity together! 💍
+            </div>
+            <button class="popup-close" onclick="closePopup('popup3')">💕 Forever!</button>
+        </div>
+    </div>
+    
+    <!-- MAIN CONTENT -->
+    <div class="main-content" id="mainContent">
+        <h1>✨ Adity's 10 Year Love Story ✨</h1>
+        
+        <div class="timeline">
+            <div class="year-section" id="year1">
+                <div class="year-title">💕 Years 1-3: Love Begins</div>
+                <div class="photo-grid">
+                    <div class="photo-frame" onclick="showPopup('popup1')">
+                        <img src="img1.png" alt="Year 1">
+                        <div class="photo-caption">💌 Click for 10-Year Letter!</div>
+                    </div>
+                    <div class="photo-frame"><img src="img2.png" alt="Year 2"><div class="photo-caption">Year 2: Falling deeper 💖</div></div>
+                    <div class="photo-frame"><img src="img3.png" alt="Year 3"><div class="photo-caption">Year 3: Building dreams 🏠</div></div>
+                </div>
+            </div>
+            
+            <div class="year-section" id="year2">
+                <div class="year-title">🌟 Years 4-6: Growing Stronger</div>
+                <div class="photo-grid">
+                    <div class="photo-frame" onclick="showPopup('popup2')">
+                        <img src="img4.png" alt="Year 4">
+                        <div class="photo-caption">💌 Half-Decade Letter!</div>
+                    </div>
+                    <div class="photo-frame"><img src="img5.png" alt="Year 5"><div class="photo-caption">Year 5: Golden moments 🏆</div></div>
+                    <div class="photo-frame"><img src="img6.png" alt="Year 6"><div class="photo-caption">Year 6: Unbreakable bond 🔗</div></div>
+                </div>
+            </div>
+            
+            <div class="year-section" id="year3">
+                <div class="year-title">💍 Years 7-10: Forever Love</div>
+                <div class="photo-grid">
+                    <div class="photo-frame" onclick="showPopup('popup3')">
+                        <img src="img7.png" alt="Year 7">
+                        <div class="photo-caption">💌 Final Love Letter!</div>
+                    </div>
+                    <div class="photo-frame"><img src="img8.png" alt="Year 8"><div class="photo-caption">Year 8: Diamond strong 💎</div></div>
+                    <div class="photo-frame"><img src="img9.png" alt="Year 9"><div class="photo-caption">Year 9: Platinum love 🥇</div></div>
+                    <div class="photo-frame"><img src="img10.png" alt="Year 10"><div class="photo-caption">Year 10: Eternal! 💖</div></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ULTRA-SMOOTH FINALE -->
+        <div class="finale" id="finale">
+            <div class="finale-heart">💖</div>
+            <div class="finale-title">
+                ADITY<br>
+                10 YEARS OF<br>
+                ETERNAL LOVE!
+            </div>
+            
+            <div class="love-letters">
+                <div class="letter-card" onclick="showPopup('popup1')">
+                    <div class="letter-number">📜 LETTER 1</div>
+                    <div class="letter-preview">"10 years ago my heart found home..."</div>
+                </div>
+                <div class="letter-card" onclick="showPopup('popup2')">
+                    <div class="letter-number">📜 LETTER 2</div>
+                    <div class="letter-preview">"5 years in, love only grew deeper..."</div>
+                </div>
+                <div class="letter-card" onclick="showPopup('popup3')">
+                    <div class="letter-number">📜 LETTER 3</div>
+                    <div class="letter-preview">"Promise to love you every sunrise..."</div>
+                </div>
+            </div>
+            
+            <div class="gifts-grid">
+                <div class="gift-box" onclick="giftClick('💍 Custom diamond necklace engraved "10 Years Eternal"')">
+                    <div class="gift-icon">💎</div>
+                    <div class="gift-title">Diamond Necklace</div>
+                </div>
+                <div class="gift-box" onclick="giftClick('✈️ Romantic Paris getaway - City of Love!')">
+                    <div class="gift-icon">🗼</div>
+                    <div class="gift-title">Paris Getaway</div>
+                </div>
+                <div class="gift-box" onclick="giftClick('📸 Custom 10-year photo book + video')">
+                    <div class="gift-icon">📖</div>
+                    <div class="gift-title">Memory Book</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 60px; font-size: 2em; color: #FFD700; font-family: 'Playfair Display'; font-weight: 700; text-shadow: 0 0 20px rgba(255,215,0,0.8);">
+                Happy 10th Anniversary My Eternal Love!<br>
+                Here's to 100 more years! 🥂💖
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ULTRA LIGHTWEIGHT & SMOOTH
+        let scrollObserver;
+        
+        function unlockPage() {
+            const pass = document.getElementById('passwordInput').value.toLowerCase().trim();
+            if (pass === 'adity') {
+                document.getElementById('lockScreen').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                initSmoothScroll();
+            } else {
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordInput').placeholder = '💔 Try again my love 💔';
+                setTimeout(() => {
+                    document.getElementById('passwordInput').placeholder = '💋 adity 💋';
+                }, 2000);
+            }
+        }
+        
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') unlockPage();
+        });
+        
+        function initSmoothScroll() {
+            const sections = document.querySelectorAll('.year-section');
+            scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => scrollObserver.observe(section));
+        }
+        
+        function showPopup(id) {
+            document.getElementById(id).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closePopup(id) {
+            document.getElementById(id).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        function giftClick(message) {
+            alert(`🎁 10TH ANNIVERSARY GIFT! 🎉\n\n${message}\n\nHappy 10 Years Adity! 💖🥂`);
+        }
+    </script>
+</body>
+</html>
